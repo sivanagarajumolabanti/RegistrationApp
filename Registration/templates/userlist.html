@@ -1,0 +1,41 @@
+{%block content %}
+<head>
+<style>
+    table,td,th{
+      border: 1px solid black;
+      border-collapse: collapse;
+      width: 30%;
+      background-color: white;
+    }
+    table {
+      border-spacing: 30px;
+    }
+    th, td {
+      padding: 5px;
+    }
+    th,td {
+      text-align: center;
+    }
+</style>
+</head>
+<h1><center>Users</center></h1>
+    {% if users %}
+            <table align="center">
+                <thead>
+                    <tr>
+                      <th>First Name</th><th>Second Name</th>
+                    </tr>
+                </thead>
+             <tbody>
+                 {% for u in users %}
+                  <tr>
+                     <td>{{ u.first_name }}</td>
+                     <td>{{ u.last_name }}</td>
+                  </tr>
+                 {% endfor %}
+             </tbody>
+            </table>
+    {% else %}
+       <h1><center>No Users Found</center></h1>
+    {% endif %}
+{% endblock %}
